@@ -14,7 +14,8 @@
   "scripts": {
     "dev": "webpack-dev-server",
     "build": "webpack",
-    "start": "webpack && node express-src/app.js`"
+    "postinstall": "webpack",
+    "start": "node express-src/app.js`"
   },
   "dependencies": {
     "autoprefixer": "^7.2.1",
