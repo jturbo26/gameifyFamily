@@ -48,7 +48,7 @@ module.exports = {
   devServer: {
     hot: true,
     host: 'localhost',
-    port: 8080,
+    port: process.env ? process.env.port : 8080,
     historyApiFallback: true
   },
   plugins: [
