@@ -47,9 +47,10 @@ module.exports = {
   devtool: 'source-map',
   devServer: {
     hot: true,
-    host: 'localhost',
-    port: process.env ? process.env.port : 8080,
-    historyApiFallback: true
+    host: '0.0.0.0',
+    port: process.env.PORT || 8080,
+    historyApiFallback: true,
+    disableHostCheck: true
   },
   plugins: [
     new HtmlWebpackPlugin({
