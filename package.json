@@ -1,5 +1,5 @@
 {
-  "name": "gameBacklog",
+  "name": "family_game",
   "devDependencies": {
     "babel-core": "^6.26.0",
     "babel-loader": "^7.1.2",
