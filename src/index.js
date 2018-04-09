@@ -12,10 +12,7 @@ import Login from 'containers/Login';
 render(
   <Provider store={store}>
     <ConnectedRouter history={history}>
-      <div>
-        <Route exact path="/" component={App} />
-        <Route exact path="/login" component={Login} />
-      </div>
+      <App/>
     </ConnectedRouter>
   </Provider>,
   document.getElementById('app')

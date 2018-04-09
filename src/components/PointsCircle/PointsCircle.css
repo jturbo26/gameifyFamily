@@ -1,0 +1,11 @@
+.pointsCircleContainer {
+  height: 6rem;
+  width: 6rem;
+  border-radius: 50%;
+  text-align: center;
+  display: inline-block;
+}
+
+.pointsText {
+  margin-top: 1.6rem;
+}
