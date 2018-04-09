@@ -1,17 +1,31 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { Link, withRouter } from 'react-router-dom';
+import { Route } from 'react-router';
+import { Button } from 'semantic-ui-react';
+
+import Header from 'containers/Header/Header';
+import UserSelection from 'containers/users/UserSelection';
+import ActivityContainer from 'containers/activities/ActivityContainer';
 
 import './App.css';
+import '../global.css';
 
-class App extends React.Component {
-  render() {
-    return (
-      <div>
-        <h1>This is the app!!!!</h1>
-        <Link to="/login">Login</Link>
-      </div>
-    );
-  }
+const App = props => {
+  const { users, activeUser } = props;
+  console.log(activeUser)
+  return (
+    <div>
+      <Header user={activeUser}/> 
+      <Route exact path='/' component={UserSelection}></Route>
+      <Route exact path='/activities' component={ActivityContainer}></Route>
+    </div>
+  );
 }
 
-export default App;
+const mapStateToProps = state => ({
+  users: state.users,
+  activeUser: state.activeUser
+})
+
+export default withRouter(connect(mapStateToProps, null)(App));

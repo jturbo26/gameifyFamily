@@ -1,0 +1,26 @@
+.headerContainer {
+  height: 100px;
+  background-color: #F1F6F8;
+  border-bottom: 1px solid #DEE5EA;
+  display: flex;
+  justify-content: space-between;
+}
+
+.pointsContainer {
+  display: flex;
+  padding-top: .5rem;
+} 
+
+.pointsHeading {
+  display: inline-block;
+  padding-top: 1rem;
+}
+
+.welcomeText {
+  float: right;
+}
+
+.selectUserText {
+  font-size: 2rem;
+  margin: 2.5rem auto 0 auto;
+}
