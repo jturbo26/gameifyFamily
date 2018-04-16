@@ -21,9 +21,9 @@ const UserSelection = props => {
       <h1>User Selection Container</h1>
       {
         users.map(user => (
-          <Link to='/activities'>
+          <Link to='/activities'
+            key={user.id}>
             <Button
-              key={user.id}
               onClick={() => setActiveUser(users.find(u => u.name === user.name))}>
               {user.name}
             </Button>

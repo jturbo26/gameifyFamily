@@ -7,5 +7,6 @@
 }
 
 .pointsText {
-  margin-top: 1.6rem;
+  margin-top: 1.8rem !important;
+  margin-bottom: 0 !important;
 }

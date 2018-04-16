@@ -13,7 +13,6 @@ import '../global.css';
 
 const App = props => {
   const { users, activeUser } = props;
-  console.log(activeUser)
   return (
     <div>
       <Header user={activeUser}/> 

@@ -20,9 +20,8 @@ const PointsCircle = ({
     <div
       className={[styles.pointsCircleContainer, className].join(' ')}
       style={userStyles}>
-      <div className={styles.pointsText}>
-      <h1>{pointsValue}</h1>
-      </div>
+      <p className={styles.pointsText}>{pointsValue}</p>
+      <sup>Points</sup>
     </div>
   );
 }
