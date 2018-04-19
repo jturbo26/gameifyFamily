@@ -17,3 +17,18 @@ render(
   </Provider>,
   document.getElementById('app')
 );
+
+if(module.hot) {
+  console.log('module.hot is true')
+  module.hot.accept('containers/App', () => {
+    console.log('hmr happening', store)
+    render(
+      <Provider store={store}>
+        <ConnectedRouter history={history}>
+          <App/>
+        </ConnectedRouter>
+      </Provider>,
+      document.getElementById('app')
+    );
+  });
+}

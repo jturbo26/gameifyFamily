@@ -1,3 +1,8 @@
 .cards {
   height: 250px;
 }
+
+.centerButton {
+  display: flex;
+  justify-content: center;
+}

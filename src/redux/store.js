@@ -6,6 +6,8 @@ import createHistory from 'history/createBrowserHistory';
 
 import { initialState } from 'mockData.js';
 
+
+
 export const history = createHistory();
 const middleware = routerMiddleware(history);
 const store = createStore(
@@ -16,5 +18,14 @@ const store = createStore(
     window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
   )
 );
+
+// if (process.env.NODE_ENV !== "production") {
+//   if (module.hot) {
+//     console.log('in store module.hot function')
+//     module.hot.accept('redux/reducers/index', () => {
+//       store.replaceReducer(rootReducer)
+//     })
+//   }
+// }
 
 export default store;

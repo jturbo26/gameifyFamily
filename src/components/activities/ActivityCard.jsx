@@ -21,9 +21,9 @@ const ActivityCard = props => {
             {description}
           </Card.Description>
         </Card.Content>
-        <Card.Content extra>
-          <div className='ui two buttons'>
-            <Button basic color='green'>Add Activity</Button>
+        <Card.Content extra className={styles.centerButton}>
+          <div className='ui'>
+            <Button basic className='center' color='green'>Add Activity</Button>
           </div>
         </Card.Content>
       </Card>

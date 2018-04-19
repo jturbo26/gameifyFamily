@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { combineReducers } from 'redux';
 import { Link, withRouter } from 'react-router-dom';
 import { Route } from 'react-router';
+import store from 'redux/store';
 import { Button } from 'semantic-ui-react';
 
 import Header from 'containers/Header/Header';
