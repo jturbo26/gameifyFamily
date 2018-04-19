@@ -2,7 +2,10 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { compose, lifecycle } from 'recompose';
 import { Link } from 'react-router-dom';
+import { history } from 'redux/store';
+
 import { Button } from 'semantic-ui-react';
+
 
 import updateActiveUser from 'redux/actions/updateActiveUser';
 
@@ -21,13 +24,17 @@ const UserSelection = props => {
       <h1>User Selection Container</h1>
       {
         users.map(user => (
-          <Link to='/activities'
-            key={user.id}>
-            <Button
-              onClick={() => setActiveUser(users.find(u => u.name === user.name))}>
-              {user.name}
-            </Button>
-          </Link>
+          <Button
+          key={user.id}
+            onClick={() => {
+              setActiveUser(users.find(u => u.name === user.name))
+              if(user.roles.includes('adult')) {
+                history.push('/adults');
+              }
+              else{history.push('/activities');}
+              }}>
+            {user.name}
+          </Button>
         ))
       }
       

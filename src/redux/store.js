@@ -7,6 +7,7 @@ import createHistory from 'history/createBrowserHistory';
 import { initialState } from 'mockData.js';
 
 export const history = createHistory();
+
 const middleware = routerMiddleware(history);
 const store = createStore(
   rootReducer,

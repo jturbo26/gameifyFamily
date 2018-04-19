@@ -7,6 +7,7 @@ import { Button } from 'semantic-ui-react';
 import Header from 'containers/Header/Header';
 import UserSelection from 'containers/users/UserSelection';
 import ActivityContainer from 'containers/activities/ActivityContainer';
+import AdultSelections from 'components/adults/AdultSelections';
 
 import './App.css';
 import '../global.css';
@@ -18,6 +19,7 @@ const App = props => {
       <Header user={activeUser}/> 
       <Route exact path='/' component={UserSelection}></Route>
       <Route exact path='/activities' component={ActivityContainer}></Route>
+      <Route path='/adults' component={AdultSelections}></Route>
     </div>
   );
 }

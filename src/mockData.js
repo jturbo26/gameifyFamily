@@ -3,18 +3,26 @@ export const initialState = {
     {
       name: "Jett",
       id: 1,
+      roles: ['child'],
+      approver: 'Dad',
       primaryColor: "#372ccf",
       secondaryColor: "#b3affc",
       pointsValue: 95,
-      active: false,
-      activityIds: []
     },
     {
       name: "Reagan",
       id: 2,
+      roles: ['child'],
+      approver: 'Dad',
       pointsValue: 199,
-      active: true,
-      activityIds: []
+    },
+    {
+      name: 'Dad',
+      id: 3,
+      roles: ['admin', 'adult'],
+      approver: null,
+      approverFor: ['Reagan', 'Jett'],
+      pointsValue: 2000,
     }
   ],
   activities: [
@@ -47,6 +55,23 @@ export const initialState = {
       name: 'Cleaned the house windows',
       description: 'I cleaned all the windows in the house with Windex',
       points: 10
+    }
+  ],
+  approvalQueue: [
+    {
+      activityId: 1,
+      requestor: 1,
+      approver: 3
+    },
+    {
+      activityId: 2,
+      requestor: 1,
+      approver: 3
+    },
+    {
+      activityId: 2,
+      requestor: 2,
+      approver: 3
     }
   ],
   activeUser: {},
