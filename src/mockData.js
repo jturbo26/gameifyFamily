@@ -60,18 +60,18 @@ export const initialState = {
   approvalQueue: [
     {
       activityId: 1,
-      requestor: 1,
-      approver: 3
+      requesterId: 1,
+      approverId: 3
     },
     {
       activityId: 2,
-      requestor: 1,
-      approver: 3
+      requesterId: 1,
+      approverId: 3
     },
     {
       activityId: 2,
-      requestor: 2,
-      approver: 3
+      requesterId: 2,
+      approverId: 3
     }
   ],
   activeUser: {},

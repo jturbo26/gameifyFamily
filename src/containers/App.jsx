@@ -8,6 +8,7 @@ import Header from 'containers/Header/Header';
 import UserSelection from 'containers/users/UserSelection';
 import ActivityContainer from 'containers/activities/ActivityContainer';
 import AdultSelections from 'components/adults/AdultSelections';
+import AdultDashboard from 'containers/adults/AdultDashboard';
 
 import './App.css';
 import '../global.css';
@@ -20,6 +21,7 @@ const App = props => {
       <Route exact path='/' component={UserSelection}></Route>
       <Route exact path='/activities' component={ActivityContainer}></Route>
       <Route path='/adults' component={AdultSelections}></Route>
+      <Route path='/adult-dashboard' component={AdultDashboard}></Route>
     </div>
   );
 }

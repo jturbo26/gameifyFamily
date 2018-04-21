@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { Button, Card } from 'semantic-ui-react';
@@ -17,7 +17,7 @@ const ActivityContainer = props => {
           <h1 className='title'>No user Selected. Please <Link to='/'>select a user!</Link></h1>
         )
         :
-        <React.Fragment>
+        <Fragment>
           <h1 className='title'>Activity Container</h1>
           <Card.Group className={styles.activityContainer}>
           {
@@ -31,7 +31,7 @@ const ActivityContainer = props => {
             ))
           }
           </Card.Group>
-        </React.Fragment>
+        </Fragment>
       }
       
     </div>
