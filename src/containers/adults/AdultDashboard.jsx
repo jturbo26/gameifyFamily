@@ -10,7 +10,7 @@ import styles from './AdultDashboard.css';
 const AdultDashboard = props => {
   const { activities, approvalQueue, activeUser, users } = props;
 
-  const getApproveeName = requesterId =>  users.find(user => user.id === requesterId);
+  const getApproveeName = requesterId => users.find(user => user.id === requesterId);
 
   const getActiveUsersApprovalActivities = () => {
     return approvalQueue
@@ -19,26 +19,23 @@ const AdultDashboard = props => {
         const activityApprovalObject = {
           activity: activities.find(a => activity.activityId === a.id),
           requesterName: getApproveeName(activity.requesterId).name
-        }
-        return activityApprovalObject
-      })
+        };
+        return activityApprovalObject;
+      });
   };
 
   return (
     <Fragment>
-      <h1 className='title'>Dashboard</h1>
+      <h1 className="title">Dashboard</h1>
       <Card.Group className={styles.activityContainer}>
-        {
-          getActiveUsersApprovalActivities().map((approvalActivity, index) => (
-            <DashboardActivityCard
-              key={index}
-              user={(approvalActivity.requesterName)}
-              points={approvalActivity.activity.points}
-              activtyName={approvalActivity.activity.name}
-            />
-          ))
-          
-        }
+        {getActiveUsersApprovalActivities().map((approvalActivity, index) => (
+          <DashboardActivityCard
+            key={index}
+            user={approvalActivity.requesterName}
+            points={approvalActivity.activity.points}
+            activtyName={approvalActivity.activity.name}
+          />
+        ))}
       </Card.Group>
     </Fragment>
   );

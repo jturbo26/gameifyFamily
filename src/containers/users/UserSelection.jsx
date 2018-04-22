@@ -6,7 +6,6 @@ import { history } from 'redux/store';
 
 import { Button } from 'semantic-ui-react';
 
-
 import updateActiveUser from 'redux/actions/updateActiveUser';
 
 const enhance = lifecycle({
@@ -22,22 +21,21 @@ const UserSelection = props => {
   return (
     <div>
       <h1>User Selection Container</h1>
-      {
-        users.map(user => (
-          <Button
+      {users.map(user => (
+        <Button
           key={user.id}
-            onClick={() => {
-              setActiveUser(users.find(u => u.name === user.name))
-              if(user.roles.includes('adult')) {
-                history.push('/adults');
-              }
-              else{history.push('/activities');}
-              }}>
-            {user.name}
-          </Button>
-        ))
-      }
-      
+          onClick={() => {
+            setActiveUser(users.find(u => u.name === user.name));
+            if (user.roles.includes('adult')) {
+              history.push('/adults');
+            } else {
+              history.push('/activities');
+            }
+          }}
+        >
+          {user.name}
+        </Button>
+      ))}
     </div>
   );
 };
@@ -51,7 +49,4 @@ const mapDispatchToProps = dispatch => ({
   setActiveUser: user => dispatch(updateActiveUser(user))
 });
 
-export default compose(
-  connect(mapStateToProps, mapDispatchToProps),
-  enhance
-)(UserSelection);
+export default compose(connect(mapStateToProps, mapDispatchToProps), enhance)(UserSelection);

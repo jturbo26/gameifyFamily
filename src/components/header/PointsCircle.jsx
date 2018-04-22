@@ -10,20 +10,17 @@ const PointsCircle = ({
   primaryColor = '#000000',
   secondaryColor = '#FFFFFF'
 }) => {
-
   const userStyles = {
-    'backgroundColor': secondaryColor,
-    'border': `1px solid ${primaryColor}`
-  }
+    backgroundColor: secondaryColor,
+    border: `1px solid ${primaryColor}`
+  };
 
   return (
-    <div
-      className={[styles.pointsCircleContainer, className].join(' ')}
-      style={userStyles}>
+    <div className={[styles.pointsCircleContainer, className].join(' ')} style={userStyles}>
       <p className={styles.pointsText}>{pointsValue}</p>
       <sup>Points</sup>
     </div>
   );
-}
+};
 
 export default PointsCircle;

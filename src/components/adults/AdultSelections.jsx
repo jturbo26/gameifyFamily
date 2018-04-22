@@ -6,18 +6,14 @@ const AdultSelections = props => {
   // const { users, activeUser } = props;
   return (
     <Fragment>
-      <Link to='adult-dashboard'>
-        <Button>
-          Dashboard
-        </Button>
+      <Link to="adult-dashboard">
+        <Button>Dashboard</Button>
       </Link>
-      <Link to='activities'>
-        <Button>
-          Activities
-        </Button>
+      <Link to="activities">
+        <Button>Activities</Button>
       </Link>
     </Fragment>
   );
-}
+};
 
 export default AdultSelections;

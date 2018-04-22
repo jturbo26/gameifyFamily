@@ -17,18 +17,18 @@ const App = props => {
   const { users, activeUser } = props;
   return (
     <div>
-      <Header user={activeUser}/> 
-      <Route exact path='/' component={UserSelection}></Route>
-      <Route exact path='/activities' component={ActivityContainer}></Route>
-      <Route path='/adults' component={AdultSelections}></Route>
-      <Route path='/adult-dashboard' component={AdultDashboard}></Route>
+      <Header user={activeUser} />
+      <Route exact path="/" component={UserSelection} />
+      <Route exact path="/activities" component={ActivityContainer} />
+      <Route path="/adults" component={AdultSelections} />
+      <Route path="/adult-dashboard" component={AdultDashboard} />
     </div>
   );
-}
+};
 
 const mapStateToProps = state => ({
   users: state.users,
   activeUser: state.activeUser
-})
+});
 
 export default withRouter(connect(mapStateToProps, null)(App));

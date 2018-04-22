@@ -1,15 +1,15 @@
 .headerContainer {
   height: 100px;
-  background-color: #F1F6F8;
-  border-bottom: 1px solid #DEE5EA;
+  background-color: #f1f6f8;
+  border-bottom: 1px solid #dee5ea;
   display: flex;
   justify-content: space-between;
 }
 
 .pointsContainer {
   display: flex;
-  padding-top: .5rem;
-} 
+  padding-top: 0.5rem;
+}
 
 .pointsHeading {
   display: inline-block;

@@ -3,7 +3,6 @@ import { routerMiddleware } from 'react-router-redux';
 import rootReducer from './reducers/index';
 import createHistory from 'history/createBrowserHistory';
 
-
 import { initialState } from 'mockData.js';
 
 export const history = createHistory();
