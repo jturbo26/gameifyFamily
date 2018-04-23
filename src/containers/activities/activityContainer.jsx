@@ -25,6 +25,8 @@ const ActivityContainer = props => {
                 name={activity.name}
                 description={activity.description}
                 points={activity.points}
+                onClick={e => console.log(e.target)}
+                // ^^Leftoff here. Need to send correct onClick to dispatch my addActivity Action
               />
             ))}
           </Card.Group>

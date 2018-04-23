@@ -5,7 +5,7 @@ import styles from './ActivityCard.css';
 const cardStyle = styles.cards;
 
 const ActivityCard = props => {
-  const { name, points, description } = props;
+  const { name, points, description, onClick } = props;
   return (
     <React.Fragment>
       <Card className={cardStyle}>
@@ -17,7 +17,7 @@ const ActivityCard = props => {
         </Card.Content>
         <Card.Content extra>
           <div className="ui two buttons">
-            <Button basic color="green">
+            <Button basic color="green" onClick={onClick}>
               Add Activity
             </Button>
           </div>

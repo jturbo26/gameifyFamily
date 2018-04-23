@@ -1,35 +1,44 @@
 export const initialState = {
   users: [
     {
-      name: "Jett",
+      name: 'Jett',
       id: 1,
       roles: ['child'],
-      approver: 'Dad',
-      primaryColor: "#372ccf",
-      secondaryColor: "#b3affc",
-      pointsValue: 95,
+      approvers: [3, 4],
+      primaryColor: '#372ccf',
+      secondaryColor: '#b3affc',
+      pointsValue: 95
     },
     {
-      name: "Reagan",
+      name: 'Reagan',
       id: 2,
       roles: ['child'],
-      approver: 'Dad',
-      pointsValue: 199,
+      approvers: [3, 4],
+      pointsValue: 199
     },
     {
       name: 'Dad',
       id: 3,
       roles: ['admin', 'adult'],
       approver: null,
-      approverFor: ['Reagan', 'Jett'],
-      pointsValue: 2000,
+      approverFor: [1, 2],
+      pointsValue: 2000
+    },
+    {
+      name: 'Mom',
+      id: 4,
+      roles: ['admin', 'adult'],
+      approver: null,
+      approverFor: [1, 2],
+      pointsValue: 1999
     }
   ],
   activities: [
     {
       id: 1,
       name: 'Cleaned my room',
-      description: 'I cleaned my entire room. There is nothing on the floor, my bed is made and trash is empty.',
+      description:
+        'I cleaned my entire room. There is nothing on the floor, my bed is made and trash is empty.',
       points: 10
     },
     {
@@ -41,7 +50,7 @@ export const initialState = {
     {
       id: 3,
       name: 'Vacuumed living room',
-      description: 'I vacuumed the entire living room and around Dad\'s desk.',
+      description: "I vacuumed the entire living room and around Dad's desk.",
       points: 5
     },
     {
@@ -59,16 +68,19 @@ export const initialState = {
   ],
   approvalQueue: [
     {
+      approvalId: 901,
       activityId: 1,
       requesterId: 1,
       approverId: 3
     },
     {
+      approvalId: 902,
       activityId: 2,
       requesterId: 1,
-      approverId: 3
+      approverId: 4
     },
     {
+      approvalId: 903,
       activityId: 2,
       requesterId: 2,
       approverId: 3
