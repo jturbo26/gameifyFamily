@@ -8,6 +8,8 @@ import { Button } from 'semantic-ui-react';
 
 import updateActiveUser from 'redux/actions/updateActiveUser';
 
+import globalStyles from 'global.css';
+
 const enhance = lifecycle({
   componentDidMount() {
     this.props.setActiveUser({});
@@ -17,10 +19,9 @@ const enhance = lifecycle({
 const UserSelection = props => {
   const { users, setActiveUser } = props;
 
-  // onComponentDidMount - Clear the user so that when on this page current user is empty
   return (
     <div>
-      <h1>User Selection Container</h1>
+      <h1 className={globalStyles.title}>User Selection Container</h1>
       {users.map(user => (
         <Button
           key={user.id}

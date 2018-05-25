@@ -2,3 +2,8 @@
   display: flex;
   justify-content: center;
 }
+
+.pointsContainer {
+  display: flex;
+  justify-content: center;
+}

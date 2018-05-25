@@ -8,6 +8,7 @@ import { initialState } from 'mockData.js';
 export const history = createHistory();
 
 const middleware = routerMiddleware(history);
+
 const store = createStore(
   rootReducer,
   initialState,
@@ -16,5 +17,12 @@ const store = createStore(
     window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
   )
 );
+
+if (module.hot) {
+  console.log('module is hot store.js');
+  module.hot.accept('./reducers/index', () => {
+    store.replaceReducer(rootReducer);
+  });
+}
 
 export default store;

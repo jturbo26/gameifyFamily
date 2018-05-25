@@ -1,17 +1,18 @@
 import React, { Fragment } from 'react';
-import { connect } from 'react-redux';
+import { connect, dispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { Card } from 'semantic-ui-react';
+import addActivity from 'redux/actions/addActivity';
 import ActivityCard from 'components/activities/ActivityCard';
 
 import isEmpty from 'lodash/isEmpty';
 import styles from './ActivityContainer.css';
 
 const ActivityContainer = props => {
-  const { users, currentActiveUser, activities } = props;
+  const { users, activeUser, activities, addActivityApprovalQueue } = props;
   return (
     <div className={styles.activityOuter}>
-      {isEmpty(currentActiveUser) ? (
+      {isEmpty(activeUser) ? (
         <h1 className="title">
           No user Selected. Please <Link to="/">select a user!</Link>
         </h1>
@@ -25,8 +26,9 @@ const ActivityContainer = props => {
                 name={activity.name}
                 description={activity.description}
                 points={activity.points}
-                onClick={e => console.log(e.target)}
-                // ^^Leftoff here. Need to send correct onClick to dispatch my addActivity Action
+                onClick={() => {
+                  return addActivityApprovalQueue(activity, activeUser.id, activeUser.approvers);
+                }}
               />
             ))}
           </Card.Group>
@@ -38,10 +40,13 @@ const ActivityContainer = props => {
 
 const mapStateToProps = state => ({
   users: state.users,
-  currentActiveUser: state.activeUser,
+  activeUser: state.activeUser,
   activities: state.activities
 });
 
-const mapDispatchToProps = dispatch => ({});
+const mapDispatchToProps = dispatch => ({
+  addActivityApprovalQueue: (activity, requesterId, approverId) =>
+    dispatch(addActivity(activity, requesterId, approverId))
+});
 
 export default connect(mapStateToProps, mapDispatchToProps)(ActivityContainer);

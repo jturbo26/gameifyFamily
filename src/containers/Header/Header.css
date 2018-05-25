@@ -3,21 +3,28 @@
   background-color: #f1f6f8;
   border-bottom: 1px solid #dee5ea;
   display: flex;
-  justify-content: space-between;
+  width: 100%;
+}
+
+.rewardLink {
+  width: 25%;
+  margin: 75px 0 0 10px;
 }
 
 .pointsContainer {
-  display: flex;
-  padding-top: 0.5rem;
-}
-
-.pointsHeading {
   display: inline-block;
-  padding-top: 1rem;
+  margin: 0 auto;
+  width: 85px;
+  padding-top: 0.5rem;
+  text-align: center;
 }
 
 .welcomeText {
+  width: 25%;
   float: right;
+  display: flex;
+  justify-content: flex-end;
+  margin: 75px 10px 0 0;
 }
 
 .selectUserText {

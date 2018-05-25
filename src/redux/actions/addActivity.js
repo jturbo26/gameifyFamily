@@ -1,10 +1,10 @@
 import { ADD_ACTIVITY } from './';
 
-const addActivity = user => ({
-  type: ADD_ACTIVITY_FOR_USER,
+const addActivity = (activity, requesterId, approvers) => ({
+  type: ADD_ACTIVITY,
   activity,
   requesterId,
-  approverId
+  approvers
 });
 
 export default addActivity;

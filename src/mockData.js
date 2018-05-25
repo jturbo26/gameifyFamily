@@ -4,7 +4,7 @@ export const initialState = {
       name: 'Jett',
       id: 1,
       roles: ['child'],
-      approvers: [3, 4],
+      approvers: [3],
       primaryColor: '#372ccf',
       secondaryColor: '#b3affc',
       pointsValue: 95
@@ -20,7 +20,7 @@ export const initialState = {
       name: 'Dad',
       id: 3,
       roles: ['admin', 'adult'],
-      approver: null,
+      approvers: null,
       approverFor: [1, 2],
       pointsValue: 2000
     },
@@ -28,7 +28,7 @@ export const initialState = {
       name: 'Mom',
       id: 4,
       roles: ['admin', 'adult'],
-      approver: null,
+      approvers: null,
       approverFor: [1, 2],
       pointsValue: 1999
     }
@@ -66,26 +66,7 @@ export const initialState = {
       points: 10
     }
   ],
-  approvalQueue: [
-    {
-      approvalId: 901,
-      activityId: 1,
-      requesterId: 1,
-      approverId: 3
-    },
-    {
-      approvalId: 902,
-      activityId: 2,
-      requesterId: 1,
-      approverId: 4
-    },
-    {
-      approvalId: 903,
-      activityId: 2,
-      requesterId: 2,
-      approverId: 3
-    }
-  ],
+  approvalQueue: [],
   activeUser: {},
   router: {},
   form: {}

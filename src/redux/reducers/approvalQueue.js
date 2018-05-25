@@ -6,10 +6,11 @@ const approvalQueue = (state = {}, action) => {
       return [
         ...state,
         {
+          // TODO: Make this a truly unique number
           approvalId: Math.floor(Math.random() * 1000 + 1),
           activityId: action.activity.id,
           requesterId: action.requesterId,
-          approverId: action.approverId
+          approvers: action.approvers
         }
       ];
     }

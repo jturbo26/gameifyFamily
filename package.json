@@ -19,7 +19,6 @@
     "build": "webpack",
     "postinstall": "webpack",
     "start": "node ./express-src/app.js",
-    "prettify": "prettier --config",
     "precommit": "pretty-quick --staged"
   },
   "dependencies": {
