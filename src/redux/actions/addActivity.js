@@ -1,10 +1,8 @@
-import { ADD_ACTIVITY } from './';
+import { ADD_APPROVAL_TO_QUEUE } from './';
 
-const addActivity = (activity, requesterId, approvers) => ({
-  type: ADD_ACTIVITY,
+export const addActivity = (activity, requesterId, approvers) => ({
+  type: ADD_APPROVAL_TO_QUEUE,
   activity,
   requesterId,
   approvers
 });
-
-export default addActivity;

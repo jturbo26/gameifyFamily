@@ -4,7 +4,7 @@ import { Button, Card, Image } from 'semantic-ui-react';
 import styles from './DashboardActivityCard.css';
 
 const DashboardActivityCard = props => {
-  const { user, points, activtyName } = props;
+  const { user, points, activtyName, approveActivity, denyActivity } = props;
   return (
     <Fragment>
       <Card className={styles.cards}>
@@ -20,10 +20,10 @@ const DashboardActivityCard = props => {
         </Card.Content>
         <Card.Content extra>
           <div className="ui two buttons">
-            <Button basic color="green">
+            <Button basic color="green" onClick={approveActivity}>
               Approve Activity
             </Button>
-            <Button basic color="red">
+            <Button basic color="red" onClick={denyActivity}>
               Deny Activity
             </Button>
           </div>

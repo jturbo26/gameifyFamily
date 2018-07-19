@@ -6,7 +6,7 @@ import { history } from 'redux/store';
 
 import { Button } from 'semantic-ui-react';
 
-import updateActiveUser from 'redux/actions/updateActiveUser';
+import { updateActiveUser } from 'redux/actions/updateActiveUser';
 
 import globalStyles from 'global.css';
 
