@@ -7,7 +7,6 @@ import { Route } from 'react-router';
 import store from 'redux/store';
 
 import App from 'containers/App';
-import Login from 'containers/Login';
 
 render(
   <Provider store={store}>

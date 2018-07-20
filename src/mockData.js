@@ -20,16 +20,16 @@ export const initialState = {
       name: 'Dad',
       id: 3,
       roles: ['admin', 'adult'],
-      approvers: null,
-      approverFor: [1, 2],
+      approvers: [3, 4],
+      approverFor: [1, 2, 3, 4],
       pointsValue: 2000
     },
     {
       name: 'Mom',
       id: 4,
       roles: ['admin', 'adult'],
-      approvers: null,
-      approverFor: [1, 2],
+      approvers: [3, 4],
+      approverFor: [1, 2, 3, 4],
       pointsValue: 1999
     }
   ],
@@ -68,6 +68,5 @@ export const initialState = {
   ],
   approvalQueue: [],
   activeUser: {},
-  router: {},
-  form: {}
+  router: {}
 };
