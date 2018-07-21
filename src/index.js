@@ -18,7 +18,6 @@ render(
 );
 
 if (module.hot) {
-  console.log('module is hot index.js');
   module.hot.accept('containers/App', () => {
     ReactDOM.render(
       <Provider store={store}>

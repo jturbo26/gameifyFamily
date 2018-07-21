@@ -13,6 +13,13 @@ const Header = ({ user }) => (
         <Link to="/" className={styles.rewardLink}>
           <h3>Rewards</h3>
         </Link>
+        {user.roles.includes('admin') || user.roles.includes('adult') ? (
+          <Link to="edit-activities" className={styles.editLink}>
+            Edit Activities
+          </Link>
+        ) : (
+          ''
+        )}
         <div className={styles.pointsContainer}>
           <PointsCircle
             primaryColor={user.primaryColor}

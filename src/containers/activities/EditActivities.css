@@ -1,0 +1,15 @@
+.addActivityContainer {
+  width: 80%;
+  margin: 25% auto 0 auto;
+  padding: 30px;
+  border: 1px solid grey;
+  border-radius: 25px;
+}
+
+.addActivityField {
+  margin-bottom: 10px;
+}
+
+.description {
+  width: 100%;
+}
