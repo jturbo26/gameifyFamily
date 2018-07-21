@@ -2,7 +2,7 @@ import React, { Fragment } from 'react';
 import { connect, dispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { Card } from 'semantic-ui-react';
-import { addActivity } from 'redux/actions/addActivity';
+import { addActivity } from 'redux/actions/approvalQueue';
 import ActivityCard from 'components/activities/ActivityCard';
 
 import isEmpty from 'lodash/isEmpty';

@@ -1,15 +1,22 @@
 import { combineReducers } from 'redux';
 import { routerReducer } from 'react-router-redux';
-import users from './users';
-import activities from './activities';
+
 import activeUser from './activeUser';
+import activities from './activities';
 import approvalQueue from './approvalQueue';
+import form from './form';
+import users from './users';
+import rewards from './rewards';
+import toasts from './toasts';
 
 const rootReducer = combineReducers({
-  users,
-  activities,
   activeUser,
+  activities,
   approvalQueue,
+  form,
+  users,
+  rewards,
+  toasts,
   router: routerReducer
 });
 

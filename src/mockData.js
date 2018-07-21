@@ -64,9 +64,63 @@ export const initialState = {
       name: 'Cleaned the house windows',
       description: 'I cleaned all the windows in the house with Windex',
       points: 10
+    },
+    {
+      id: 6,
+      name: 'Cleaned up after Charlie - Small Mess',
+      description: "I cleaned up a small mess of Charlie's",
+      points: 5
+    },
+    {
+      id: 7,
+      name: 'Cleaned up after Charlie - Large Mess',
+      description: "I cleaned up a large mess of Charlie's",
+      points: 10
+    }
+  ],
+  rewards: [
+    {
+      id: 1,
+      name: 'Pick dinner at home',
+      cost: 50
+    },
+    {
+      id: 2,
+      name: 'Pick dinner out - Fast food',
+      cost: 200
+    },
+    {
+      id: 3,
+      name: 'Pick dessert at grocery store',
+      cost: 200
+    },
+    {
+      id: 4,
+      name: 'Pick out small toy from grocery store',
+      cost: 100
+    },
+    {
+      id: 5,
+      name: 'Choose the movie for family at home',
+      cost: 100
+    },
+    {
+      id: 6,
+      name: 'Choose movie for family outside the house',
+      cost: 1000
+    },
+    {
+      id: 7,
+      name: 'Go to the mall and trip to candy store in mall',
+      cost: 2000
     }
   ],
   approvalQueue: [],
   activeUser: {},
+  toasts: {
+    visible: false,
+    title: '',
+    body: ''
+  },
   router: {}
 };
