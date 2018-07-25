@@ -28,6 +28,7 @@
     "express": "^4.16.2",
     "history": "^4.7.2",
     "lodash": "^4.17.5",
+    "moment": "^2.22.2",
     "postcss-loader": "^2.0.9",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
