@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react';
 import { connect } from 'react-redux';
 
-import { addPointsToUser } from 'redux/actions/users';
+import { addPointsToUser, createUserRecord } from 'redux/actions/users';
 import { removeApprovalFromQueue } from 'redux/actions/approvalQueue';
 
 import { Card } from 'semantic-ui-react';
@@ -11,7 +11,15 @@ import DashboardActivityCard from 'components/activities/DashboardActivityCard';
 import styles from './AdultDashboard.css';
 
 const AdultDashboard = props => {
-  const { activities, approvalQueue, activeUser, users, addPoints, removeApproval } = props;
+  const {
+    activities,
+    approvalQueue,
+    activeUser,
+    users,
+    addPoints,
+    removeApproval,
+    createRecord
+  } = props;
 
   const getApprovee = requesterId => users.find(user => user.id === requesterId);
 
@@ -45,9 +53,7 @@ const AdultDashboard = props => {
       </div>
       <Card.Group className={styles.activityContainer}>
         {getActiveUsersApprovalActivities().map((approvalActivity, index) => {
-          const userToAddPointsTo = users.find(
-            user => user.name === approvalActivity.requesterName
-          );
+          const userToApprove = users.find(user => user.name === approvalActivity.requesterName);
           return (
             <DashboardActivityCard
               key={index}
@@ -55,8 +61,13 @@ const AdultDashboard = props => {
               points={approvalActivity.activity.points}
               activtyName={approvalActivity.activity.name}
               approveActivity={() => {
-                addPoints(userToAddPointsTo, approvalActivity.activity.points);
+                addPoints(userToApprove, approvalActivity.activity.points);
                 removeApproval(approvalActivity.approvalId);
+                createRecord(
+                  userToApprove,
+                  approvalActivity.activity.id,
+                  approvalActivity.activity.name
+                );
               }}
               denyActivity={() => removeApproval(approvalActivity.approvalId)}
             />
@@ -76,7 +87,9 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
   addPoints: (user, points) => dispatch(addPointsToUser(user, points)),
-  removeApproval: approvalId => dispatch(removeApprovalFromQueue(approvalId))
+  removeApproval: approvalId => dispatch(removeApprovalFromQueue(approvalId)),
+  createRecord: (user, activityId, activityName) =>
+    dispatch(createUserRecord(user, activityId, activityName))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(AdultDashboard);

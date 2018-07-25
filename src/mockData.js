@@ -7,14 +7,16 @@ export const initialState = {
       approvers: [3],
       primaryColor: '#372ccf',
       secondaryColor: '#b3affc',
-      pointsValue: 95
+      pointsValue: 95,
+      userRecords: []
     },
     {
       name: 'Reagan',
       id: 2,
       roles: ['child'],
       approvers: [3, 4],
-      pointsValue: 199
+      pointsValue: 199,
+      userRecords: []
     },
     {
       name: 'Dad',
@@ -22,7 +24,8 @@ export const initialState = {
       roles: ['admin', 'adult'],
       approvers: [3, 4],
       approverFor: [1, 2, 3, 4],
-      pointsValue: 2000
+      pointsValue: 2000,
+      userRecords: []
     },
     {
       name: 'Mom',
@@ -30,7 +33,8 @@ export const initialState = {
       roles: ['admin', 'adult'],
       approvers: [3, 4],
       approverFor: [1, 2, 3, 4],
-      pointsValue: 1999
+      pointsValue: 1999,
+      userRecords: []
     }
   ],
   activities: [
@@ -39,43 +43,50 @@ export const initialState = {
       name: 'Cleaned my room',
       description:
         'I cleaned my entire room. There is nothing on the floor, my bed is made and trash is empty.',
-      points: 10
+      points: 10,
+      frequency: 1
     },
     {
       id: 2,
       name: 'Organized the entryway',
       description: 'I organized all of the shoes and cleaned up the entryway.',
-      points: 10
+      points: 10,
+      frequency: 1
     },
     {
       id: 3,
       name: 'Vacuumed living room',
       description: "I vacuumed the entire living room and around Dad's desk.",
-      points: 5
+      points: 5,
+      frequency: 1
     },
     {
       id: 4,
       name: 'Cleaned bathroom',
       description: 'I cleaned the bathroom to the standards I was taught.',
-      points: 15
+      points: 15,
+      frequency: 7
     },
     {
       id: 5,
       name: 'Cleaned the house windows',
       description: 'I cleaned all the windows in the house with Windex',
-      points: 10
+      points: 10,
+      frequency: 7
     },
     {
       id: 6,
       name: 'Cleaned up after Charlie - Small Mess',
       description: "I cleaned up a small mess of Charlie's",
-      points: 5
+      points: 5,
+      frequency: 0
     },
     {
       id: 7,
       name: 'Cleaned up after Charlie - Large Mess',
       description: "I cleaned up a large mess of Charlie's",
-      points: 10
+      points: 10,
+      frequency: 1
     }
   ],
   rewards: [
