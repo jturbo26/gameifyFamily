@@ -18,7 +18,7 @@
     "dev": "webpack-dev-server",
     "build": "webpack",
     "postinstall": "webpack",
-    "start": "yarn build && node ./app.js",
+    "start": "webpack && node ./app.js",
     "precommit": "pretty-quick --staged"
   },
   "dependencies": {
