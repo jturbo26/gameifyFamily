@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Link, withRouter } from 'react-router-dom';
-import { Route } from 'react-router';
+import { Link, withRouter, Route } from 'react-router-dom';
 import { Button } from 'semantic-ui-react';
 
 import Header from 'containers/Header/Header';
@@ -23,8 +22,8 @@ const App = props => {
       {toastVisibility ? <ToastContainer /> : ''}
 
       <Route exact path="/" component={UserSelection} />
-      <Route exact path="/activities" component={ActivityContainer} />
-      <Route exact path="/edit-activities" component={EditActivities} />
+      <Route path="/activities" component={ActivityContainer} />
+      <Route path="/edit-activities" component={EditActivities} />
       <Route path="/adults" component={AdultSelections} />
       <Route path="/adult-dashboard" component={AdultDashboard} />
     </div>
