@@ -18,7 +18,7 @@
     "dev": "webpack-dev-server",
     "build": "webpack",
     "postinstall": "webpack",
-    "start": "node ./express-src/app.js",
+    "start": "node ./app.js",
     "precommit": "pretty-quick --staged"
   },
   "dependencies": {
@@ -27,6 +27,7 @@
     "eslint": "^4.19.1",
     "express": "^4.16.2",
     "history": "^4.7.2",
+    "html-loader": "^0.5.5",
     "lodash": "^4.17.5",
     "moment": "^2.22.2",
     "postcss-loader": "^2.0.9",
