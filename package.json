@@ -1,11 +1,6 @@
 {
   "name": "family_game",
   "devDependencies": {
-    "babel-core": "^6.26.0",
-    "babel-loader": "^7.1.2",
-    "babel-plugin-transform-object-rest-spread": "^6.26.0",
-    "babel-preset-env": "^1.6.1",
-    "babel-preset-react": "^6.24.1",
     "husky": "^0.14.3",
     "prettier": "1.12.1",
     "pretty-quick": "^1.4.1",
@@ -21,6 +16,11 @@
   },
   "dependencies": {
     "autoprefixer": "^7.2.1",
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-react": "^6.24.1",
     "css-loader": "^0.28.7",
     "eslint": "^4.19.1",
     "express": "^4.16.2",
