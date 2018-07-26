@@ -49,7 +49,6 @@ module.exports = {
     modules: [path.resolve('./src'), path.resolve('./node_modules')]
   },
   cache: true,
-  devtool: 'cheap-module-source-map',
   devServer: {
     hot: true,
     host: '0.0.0.0',
