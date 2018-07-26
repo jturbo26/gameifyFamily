@@ -16,9 +16,11 @@ const ActivityCard = props => {
           <Card.Description>{description}</Card.Description>
         </Card.Content>
         <Card.Content extra>
-          <Button basic color="green" onClick={onClick}>
-            Add Activity
-          </Button>
+          <div className="ui two buttons">
+            <Button basic color="green" onClick={onClick}>
+              Add Activity
+            </Button>
+          </div>
           {/* TODO: Make the addActivity button dependant on the
           disabled prop so it can be disabled when the activity
           is on lockout */}
@@ -34,9 +36,11 @@ const ActivityCard = props => {
               content="Must wait X time to add again!"
             />
           ) : (
+            <div className="ui two buttons">
             <Button basic color="green" onClick={onClick}>
               Add Activity
             </Button>
+            </div>
           )} */}
         </Card.Content>
       </Card>
