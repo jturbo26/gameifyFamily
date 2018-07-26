@@ -16,7 +16,7 @@ const enhance = lifecycle({
   }
 });
 
-const UserSelection = props => {
+const UserSelectionContainer = props => {
   const { users, setActiveUser } = props;
 
   return (
@@ -50,4 +50,6 @@ const mapDispatchToProps = dispatch => ({
   setActiveUser: user => dispatch(updateActiveUser(user))
 });
 
-export default compose(connect(mapStateToProps, mapDispatchToProps), enhance)(UserSelection);
+export const UserSelection = compose(connect(mapStateToProps, mapDispatchToProps), enhance)(
+  UserSelectionContainer
+);

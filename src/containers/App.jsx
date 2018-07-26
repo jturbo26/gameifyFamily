@@ -5,11 +5,11 @@ import { Button } from 'semantic-ui-react';
 
 import Header from 'containers/Header/Header';
 import ToastContainer from 'containers/Toasts/ToastContainer';
-import UserSelection from 'containers/users/UserSelection';
-import ActivityContainer from 'containers/activities/ActivityContainer';
-import EditActivities from 'containers/activities/EditActivities';
-import AdultSelections from 'components/adults/AdultSelections';
-import AdultDashboard from 'containers/adults/AdultDashboard';
+import { UserSelection } from 'containers/users/UserSelection';
+import { Activities } from 'containers/activities/activityContainer';
+import { EditActivities } from 'containers/activities/EditActivities';
+import { AdultSelections } from 'components/adults/AdultSelections';
+import { AdultDashboard } from 'containers/adults/AdultDashboard';
 
 import './App.css';
 import '../global.css';
@@ -22,7 +22,7 @@ const App = props => {
       {toastVisibility ? <ToastContainer /> : ''}
 
       <Route exact path="/" component={UserSelection} />
-      <Route path="/activities" component={ActivityContainer} />
+      <Route path="/activities" component={Activities} />
       <Route path="/edit-activities" component={EditActivities} />
       <Route path="/adults" component={AdultSelections} />
       <Route path="/adult-dashboard" component={AdultDashboard} />

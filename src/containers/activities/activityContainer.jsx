@@ -81,4 +81,4 @@ const mapDispatchToProps = dispatch => ({
   displaySuccessToast: (title, body, timeout) => dispatch(displayToast(title, body, timeout))
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(ActivityContainer);
+export const Activities = connect(mapStateToProps, mapDispatchToProps)(ActivityContainer);

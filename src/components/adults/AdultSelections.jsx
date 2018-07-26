@@ -2,7 +2,7 @@ import React, { Fragment } from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from 'semantic-ui-react';
 
-const AdultSelections = props => {
+export const AdultSelections = props => {
   // const { users, activeUser } = props;
   return (
     <Fragment>
@@ -15,5 +15,3 @@ const AdultSelections = props => {
     </Fragment>
   );
 };
-
-export default AdultSelections;

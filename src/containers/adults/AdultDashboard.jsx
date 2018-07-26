@@ -10,7 +10,7 @@ import DashboardActivityCard from 'components/activities/DashboardActivityCard';
 
 import styles from './AdultDashboard.css';
 
-const AdultDashboard = props => {
+const AdultDashboardContainer = props => {
   const {
     activities,
     approvalQueue,
@@ -92,4 +92,4 @@ const mapDispatchToProps = dispatch => ({
     dispatch(createUserRecord(user, activityId, activityName))
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(AdultDashboard);
+export const AdultDashboard = connect(mapStateToProps, mapDispatchToProps)(AdultDashboardContainer);

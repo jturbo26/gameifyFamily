@@ -8,7 +8,7 @@ import { createNewActivity } from 'redux/actions/activities';
 import { displayToast } from 'redux/actions/toasts';
 import { updateField } from 'redux/actions/form';
 
-const EditActivities = props => {
+const EditActivitiesContainer = props => {
   const {
     createActivity,
     updateFormField,
@@ -63,4 +63,4 @@ const mapDispatchToProps = dispatch => ({
   displaySuccessToast: (title, body, timeout) => dispatch(displayToast(title, body, timeout))
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(EditActivities);
+export const EditActivities = connect(mapStateToProps, mapDispatchToProps)(EditActivitiesContainer);
