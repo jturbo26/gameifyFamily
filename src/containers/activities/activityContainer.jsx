@@ -36,18 +36,15 @@ const ActivityContainer = props => {
 
                 const recordExpiration =
                   typeof userRecordsMatch === 'object'
-                    ? moment(recordTimestamp()).add(activity.frequency, 'days')
+                    ? moment(recordTimestamp(userRecordsMatch)).add(activity.frequency, 'days')
                     : '';
-                console.log(
-                  recordExpiration &&
-                    recordTimestamp &&
-                    moment(recordTimestamp).isBefore(recordExpiration)
-                );
-                return (
-                  recordExpiration &&
-                  recordTimestamp &&
-                  moment(recordTimestamp).isBefore(recordExpiration)
-                );
+                return {
+                  flag:
+                    recordExpiration &&
+                    recordTimestamp(userRecordsMatch) &&
+                    moment(recordTimestamp(userRecordsMatch)).isBefore(recordExpiration),
+                  timestamp: recordExpiration - recordTimestamp(userRecordsMatch)
+                };
               };
               return (
                 <ActivityCard
@@ -58,7 +55,8 @@ const ActivityContainer = props => {
                   onClick={() => {
                     return addActivityApprovalQueue(activity, activeUser.id, activeUser.approvers);
                   }}
-                  disabled={shouldBeDisabled()}
+                  timestamp={shouldBeDisabled().timestamp}
+                  disabled={shouldBeDisabled().flag}
                 />
               );
             })}

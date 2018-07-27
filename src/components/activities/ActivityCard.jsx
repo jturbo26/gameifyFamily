@@ -1,11 +1,13 @@
 import React from 'react';
 import { Button, Card, Image, Popup } from 'semantic-ui-react';
+import moment from 'moment';
 
 import styles from './ActivityCard.css';
 const cardStyle = styles.cards;
 
 const ActivityCard = props => {
-  const { name, points, description, onClick, disabled } = props;
+  const { name, points, description, onClick, disabled, timestamp } = props;
+  const duration = moment.duration(timestamp, 'milliseconds');
   return (
     <React.Fragment>
       <Card className={cardStyle}>
@@ -16,15 +18,7 @@ const ActivityCard = props => {
           <Card.Description>{description}</Card.Description>
         </Card.Content>
         <Card.Content extra>
-          <div className="ui two buttons">
-            <Button basic color="green" onClick={onClick}>
-              Add Activity
-            </Button>
-          </div>
-          {/* TODO: Make the addActivity button dependant on the
-          disabled prop so it can be disabled when the activity
-          is on lockout */}
-          {/* {disabled ? (
+          {disabled ? (
             <Popup
               trigger={
                 <div className="ui two buttons">
@@ -33,15 +27,15 @@ const ActivityCard = props => {
                   </Button>
                 </div>
               }
-              content="Must wait X time to add again!"
+              content={`Must wait ${duration.asHours()}h ${duration.minutes()}m to add again!`}
             />
           ) : (
             <div className="ui two buttons">
-            <Button basic color="green" onClick={onClick}>
-              Add Activity
-            </Button>
+              <Button basic color="green" onClick={onClick}>
+                Add Activity
+              </Button>
             </div>
-          )} */}
+          )}
         </Card.Content>
       </Card>
     </React.Fragment>
