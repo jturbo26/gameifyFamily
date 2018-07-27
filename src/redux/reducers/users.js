@@ -1,4 +1,4 @@
-import { ADD_POINTS_TO_USER, CREATE_USER_RECORD } from 'redux/actions';
+import { ADD_POINTS_TO_USER, CREATE_USER_RECORD, SET_POINTS_VALUE } from 'redux/actions';
 
 const users = (state = [], action) => {
   switch (action.type) {
@@ -29,6 +29,18 @@ const users = (state = [], action) => {
               timestamp: action.timestamp
             }
           ]
+        },
+        ...state.slice(indexOfUser + 1)
+      ];
+    }
+    case SET_POINTS_VALUE: {
+      const userFromState = state.find(user => user.id === action.foundUser.id);
+      const indexOfUser = state.indexOf(userFromState);
+      return [
+        ...state.slice(0, indexOfUser),
+        {
+          ...userFromState,
+          pointsValue: action.newPointsValue
         },
         ...state.slice(indexOfUser + 1)
       ];

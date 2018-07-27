@@ -9,7 +9,8 @@ const activities = (state = [], action) => {
           id: action.id,
           name: action.name,
           description: action.description,
-          points: action.points
+          points: action.points,
+          frequency: action.frequency
         }
       ];
     }

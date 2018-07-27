@@ -68,6 +68,14 @@ const EditActivitiesContainer = props => {
               onChange={e => updateFormField('activityPoints', e.target.value)}
               className={styles.addActivityField}
             />
+            <Input
+              fluid
+              label="Activity Frequency"
+              type="number"
+              max={10}
+              onChange={e => updateFormField('activityFrequency', e.target.value)}
+              className={styles.addActivityField}
+            />
             <Button type="submit">Create Activity</Button>
           </form>
         </div>
@@ -84,6 +92,7 @@ EditActivitiesContainer.propTypes = {
   activityName: PropTypes.string,
   activityDescription: PropTypes.string,
   activityPoints: PropTypes.string,
+  activityFrequency: PropTypes.number,
   displaySuccessToast: PropTypes.func,
   activities: PropTypes.array,
   removeActivity: PropTypes.func,
@@ -94,13 +103,14 @@ const mapStateToProps = state => ({
   activityName: state.form.activityName,
   activityDescription: state.form.activityDescription,
   activityPoints: state.form.activityPoints,
+  activityFrequency: state.form.activityFrequency,
   activities: state.activities,
   activeUser: state.activeUser
 });
 
 const mapDispatchToProps = dispatch => ({
-  createActivity: (name, description, points) =>
-    createNewActivity(dispatch, name, description, points),
+  createActivity: (name, description, points, frequency) =>
+    createNewActivity(dispatch, name, description, points, frequency),
   updateFormField: (fieldName, value) => dispatch(updateField(fieldName, value)),
   displaySuccessToast: (title, body, timeout) => dispatch(displayToast(title, body, timeout)),
   removeActivity: activityId => dispatch(deleteActivity(activityId))
