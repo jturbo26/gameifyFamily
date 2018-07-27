@@ -1,4 +1,5 @@
 import React, { Fragment } from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
 import { addPointsToUser, createUserRecord } from 'redux/actions/users';
@@ -76,6 +77,16 @@ const AdultDashboardContainer = props => {
       </Card.Group>
     </Fragment>
   );
+};
+
+AdultDashboardContainer.propTypes = {
+  activities: PropTypes.array,
+  approvalQueue: PropTypes.array,
+  activeUser: PropTypes.object,
+  users: PropTypes.array,
+  addPoints: PropTypes.func,
+  removeApproval: PropTypes.func,
+  createRecord: PropTypes.func
 };
 
 const mapStateToProps = state => ({

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { Button } from 'semantic-ui-react';
 
@@ -21,6 +22,13 @@ const PointsCircle = ({
       <sup>Points</sup>
     </div>
   );
+};
+
+PointsCircle.propTypes = {
+  pointsValue: PropTypes.number,
+  className: PropTypes.string,
+  primaryColor: PropTypes.string,
+  secondaryColor: PropTypes.string
 };
 
 export default PointsCircle;

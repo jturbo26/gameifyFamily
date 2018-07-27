@@ -1,4 +1,5 @@
 import React, { Fragment } from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
 // import styles from './EditActivities.css';
@@ -18,6 +19,10 @@ const RewardsContainer = props => {
       })}
     </div>
   );
+};
+
+RewardsContainer.propTypes = {
+  rewards: PropTypes.array
 };
 
 const mapStateToProps = state => ({

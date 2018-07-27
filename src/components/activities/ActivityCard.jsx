@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Button, Card, Image, Popup } from 'semantic-ui-react';
 import moment from 'moment';
 
@@ -40,6 +41,15 @@ const ActivityCard = props => {
       </Card>
     </React.Fragment>
   );
+};
+
+ActivityCard.propTypes = {
+  name: PropTypes.string,
+  points: PropTypes.number,
+  description: PropTypes.string,
+  onClick: PropTypes.func,
+  disabled: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]),
+  timestamp: PropTypes.number
 };
 
 export default ActivityCard;

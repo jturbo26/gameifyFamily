@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { Link, withRouter, Route } from 'react-router-dom';
 import { Button } from 'semantic-ui-react';
@@ -30,6 +31,12 @@ const App = props => {
       <Route path="/rewards" component={Rewards} />
     </div>
   );
+};
+
+App.propTypes = {
+  users: PropTypes.array,
+  activeUser: PropTypes.object,
+  toastVisibility: PropTypes.bool
 };
 
 const mapStateToProps = state => ({

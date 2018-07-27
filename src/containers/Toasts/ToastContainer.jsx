@@ -1,4 +1,5 @@
 import React, { Fragment } from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
 import { hideToast } from 'redux/actions/toasts';
@@ -24,5 +25,11 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => ({
   closeToast: () => hideToast()
 });
+
+ToastContainer.propTypes = {
+  title: PropTypes.string,
+  body: PropTypes.string,
+  closeToast: PropTypes.func
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(ToastContainer);

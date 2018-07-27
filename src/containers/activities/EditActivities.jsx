@@ -1,4 +1,5 @@
 import React, { Fragment } from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
 import styles from './EditActivities.css';
@@ -64,6 +65,17 @@ const EditActivitiesContainer = props => {
       </form>
     </Fragment>
   );
+};
+
+EditActivitiesContainer.propTypes = {
+  createActivity: PropTypes.func,
+  updateFormField: PropTypes.func,
+  activityName: PropTypes.string,
+  activityDescription: PropTypes.string,
+  activityPoints: PropTypes.string,
+  displaySuccessToast: PropTypes.func,
+  activities: PropTypes.array,
+  removeActivity: PropTypes.func
 };
 
 const mapStateToProps = state => ({

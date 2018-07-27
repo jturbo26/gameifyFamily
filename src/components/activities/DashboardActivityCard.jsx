@@ -1,4 +1,5 @@
 import React, { Fragment } from 'react';
+import PropTypes from 'prop-types';
 import { Button, Card, Image } from 'semantic-ui-react';
 
 import styles from './DashboardActivityCard.css';
@@ -31,6 +32,14 @@ const DashboardActivityCard = props => {
       </Card>
     </Fragment>
   );
+};
+
+DashboardActivityCard.propTypes = {
+  user: PropTypes.string,
+  points: PropTypes.number,
+  activtyName: PropTypes.string,
+  approveActivity: PropTypes.func,
+  denyActivity: PropTypes.func
 };
 
 export default DashboardActivityCard;

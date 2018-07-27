@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { compose, lifecycle } from 'recompose';
 import { Link } from 'react-router-dom';
@@ -39,6 +40,11 @@ const UserSelectionContainer = props => {
       ))}
     </div>
   );
+};
+
+UserSelectionContainer.propTypes = {
+  users: PropTypes.array,
+  setActiveUser: PropTypes.func
 };
 
 const mapStateToProps = state => ({

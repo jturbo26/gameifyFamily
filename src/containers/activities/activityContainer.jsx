@@ -1,4 +1,5 @@
 import React, { Fragment } from 'react';
+import PropTypes from 'prop-types';
 import { connect, dispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 import moment from 'moment';
@@ -65,6 +66,13 @@ const ActivityContainer = props => {
       )}
     </div>
   );
+};
+
+ActivityContainer.propTypes = {
+  users: PropTypes.array,
+  activeUser: PropTypes.object,
+  activities: PropTypes.array,
+  addActivityApprovalQueue: PropTypes.func
 };
 
 const mapStateToProps = state => ({
