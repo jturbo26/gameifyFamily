@@ -128,6 +128,7 @@ export const initialState = {
   ],
   approvalQueue: [],
   activeUser: {},
+  isModalOpen: false,
   toasts: {
     visible: false,
     title: '',

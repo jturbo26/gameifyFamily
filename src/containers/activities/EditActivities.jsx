@@ -1,6 +1,7 @@
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import { Redirect } from 'react-router-dom';
 
 import styles from './EditActivities.css';
 import { Input, TextArea, Label, Button } from 'semantic-ui-react';
@@ -71,10 +72,7 @@ const EditActivitiesContainer = props => {
           </form>
         </div>
       ) : (
-        <h1>
-          No user is selected. Please navigate back to <Link to="/">user selection</Link> to sign
-          in.
-        </h1>
+        <Redirect to="/" />
       )}
     </Fragment>
   );

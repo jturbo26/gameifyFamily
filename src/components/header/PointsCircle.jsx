@@ -9,7 +9,8 @@ const PointsCircle = ({
   pointsValue,
   className,
   primaryColor = '#000000',
-  secondaryColor = '#FFFFFF'
+  secondaryColor = '#FFFFFF',
+  onClick
 }) => {
   const userStyles = {
     backgroundColor: secondaryColor,
@@ -17,7 +18,11 @@ const PointsCircle = ({
   };
 
   return (
-    <div className={[styles.pointsCircleContainer, className].join(' ')} style={userStyles}>
+    <div
+      className={[styles.pointsCircleContainer, className].join(' ')}
+      style={userStyles}
+      onClick={onClick}
+    >
       <p className={styles.pointsText}>{pointsValue}</p>
       <sup>Points</sup>
     </div>

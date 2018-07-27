@@ -6,6 +6,8 @@ export const ADD_APPROVAL_TO_QUEUE = 'ADD_APPROVAL_TO_QUEUE';
 export const REMOVE_APPROVAL_FROM_QUEUE = 'REMOVE_APPROVAL_FROM_QUEUE';
 // form
 export const UPDATE_FIELD = 'UPDATE_FIELD';
+// modals
+export const TOGGLE_MODAL = 'TOGGLE_MODAL';
 // rewards
 // toasts
 export const DISPLAY_TOAST = 'DISPLAY_TOAST';
