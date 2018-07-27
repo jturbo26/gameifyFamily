@@ -92,7 +92,7 @@ EditActivitiesContainer.propTypes = {
   activityName: PropTypes.string,
   activityDescription: PropTypes.string,
   activityPoints: PropTypes.string,
-  activityFrequency: PropTypes.number,
+  activityFrequency: PropTypes.string,
   displaySuccessToast: PropTypes.func,
   activities: PropTypes.array,
   removeActivity: PropTypes.func,

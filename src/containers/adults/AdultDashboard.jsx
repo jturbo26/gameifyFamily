@@ -116,7 +116,10 @@ const AdultDashboardContainer = props => {
             type="number"
             onChange={e => updateFormField('modalNewPointsValue', e.target.value)}
           />
-          <Button onClick={() => setPointsValue(modalUserSelectFamilyMember, modalNewPointsValue)}>
+          <Button
+            disabled={!modalUserSelectFamilyMember || !modalNewPointsValue}
+            onClick={() => setPointsValue(modalUserSelectFamilyMember, modalNewPointsValue)}
+          >
             Submit
           </Button>
           <Button onClick={() => toggleTheModal()}>Cancel</Button>
