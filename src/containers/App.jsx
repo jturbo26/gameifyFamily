@@ -10,6 +10,7 @@ import { Activities } from 'containers/activities/activityContainer';
 import { EditActivities } from 'containers/activities/EditActivities';
 import { AdultSelections } from 'components/adults/AdultSelections';
 import { AdultDashboard } from 'containers/adults/AdultDashboard';
+import { Rewards } from 'containers/rewards';
 
 import './App.css';
 import '../global.css';
@@ -26,6 +27,7 @@ const App = props => {
       <Route path="/edit-activities" component={EditActivities} />
       <Route path="/adults" component={AdultSelections} />
       <Route path="/adult-dashboard" component={AdultDashboard} />
+      <Route path="/rewards" component={Rewards} />
     </div>
   );
 };

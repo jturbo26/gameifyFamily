@@ -1,4 +1,4 @@
-import { CREATE_NEW_ACTIVITY } from 'redux/actions';
+import { CREATE_NEW_ACTIVITY, DELETE_ACTIVITY } from 'redux/actions';
 
 const activities = (state = [], action) => {
   switch (action.type) {
@@ -9,8 +9,17 @@ const activities = (state = [], action) => {
           id: action.id,
           name: action.name,
           description: action.description,
-          pointsValue: action.pointsValue
+          points: action.points
         }
+      ];
+    }
+    case DELETE_ACTIVITY: {
+      const indexOfActivityToDelete = state.indexOf(
+        state.find(activity => activity.id === action.activityId)
+      );
+      return [
+        ...state.slice(0, indexOfActivityToDelete),
+        ...state.slice(indexOfActivityToDelete + 1)
       ];
     }
     default: {

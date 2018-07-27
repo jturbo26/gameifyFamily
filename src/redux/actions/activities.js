@@ -1,15 +1,24 @@
 const uuidv1 = require('uuid/v1');
 
-import { CREATE_NEW_ACTIVITY } from './';
+import { CREATE_NEW_ACTIVITY, DELETE_ACTIVITY } from './';
 
-export const createNewActivity = async (dispatch, name, description, pointsValue) => {
+export const createNewActivity = async (dispatch, name, description, points) => {
   const uuid = await uuidv1();
   dispatch({
     type: CREATE_NEW_ACTIVITY,
     id: uuid,
     name,
     description,
-    pointsValue
+    points
   });
   return true;
+};
+
+export const deleteActivity = activityId => {
+  return dispatch => {
+    dispatch({
+      type: DELETE_ACTIVITY,
+      activityId
+    });
+  };
 };

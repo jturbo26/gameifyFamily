@@ -10,7 +10,7 @@ const Header = ({ user }) => (
   <div className={styles.headerContainer}>
     {Object.keys(user).length > 0 ? (
       <React.Fragment>
-        <Link to="/" className={styles.rewardLink}>
+        <Link to="/rewards" className={styles.rewardLink}>
           <h3>Rewards</h3>
         </Link>
         {user.roles.includes('admin') || user.roles.includes('adult') ? (
