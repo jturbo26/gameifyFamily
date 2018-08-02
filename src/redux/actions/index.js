@@ -1,4 +1,5 @@
 // activities
+export const LOAD_ACTIVITIES = 'LOAD_ACTIVITIES';
 export const CREATE_NEW_ACTIVITY = 'CREATE_NEW_ACTIVITY';
 export const DELETE_ACTIVITY = 'DELETE_ACTIVITY';
 // approvalQueue

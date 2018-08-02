@@ -1,7 +1,10 @@
-import { CREATE_NEW_ACTIVITY, DELETE_ACTIVITY } from 'redux/actions';
+import { LOAD_ACTIVITIES, CREATE_NEW_ACTIVITY, DELETE_ACTIVITY } from 'redux/actions';
 
 const activities = (state = [], action) => {
   switch (action.type) {
+    case LOAD_ACTIVITIES: {
+      return action.activities;
+    }
     case CREATE_NEW_ACTIVITY: {
       return [
         ...state,

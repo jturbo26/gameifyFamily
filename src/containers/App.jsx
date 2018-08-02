@@ -13,11 +13,14 @@ import { AdultSelections } from 'components/adults/AdultSelections';
 import { AdultDashboard } from 'containers/adults/AdultDashboard';
 import { Rewards } from 'containers/rewards';
 
+import { loadActivities } from 'redux/actions/activities';
+
 import './App.css';
 import '../global.css';
 
 const App = props => {
-  const { users, activeUser, toastVisibility } = props;
+  const { users, activeUser, toastVisibility, getActivities } = props;
+  getActivities();
   return (
     <div>
       <Header user={activeUser} />
@@ -45,4 +48,8 @@ const mapStateToProps = state => ({
   toastVisibility: state.toasts.visible
 });
 
-export default withRouter(connect(mapStateToProps, null)(App));
+const mapDispatchToProps = {
+  getActivities: () => loadActivities()
+};
+
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(App));
