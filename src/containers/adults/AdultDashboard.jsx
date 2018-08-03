@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import { isObjectEmpty } from 'utilities';
 
-import { addPointsToUser, createUserRecord, setPointsValue } from 'redux/actions/users';
+import { addPointsToUser, createUserRecord, setPointsValue } from 'redux/actions/userData';
 import { removeApprovalFromQueue } from 'redux/actions/approvalQueue';
 import { toggleModal } from 'redux/actions/modals';
 import { updateField } from 'redux/actions/form';
@@ -151,7 +151,7 @@ const mapStateToProps = state => ({
   activities: state.activities,
   approvalQueue: state.approvalQueue,
   activeUser: state.activeUser,
-  users: state.users,
+  users: state.userData,
   isModalOpen: state.isModalOpen,
   modalUserSelectFamilyMember: state.form.modalUserSelectFamilyMember,
   modalNewPointsValue: state.form.modalNewPointsValue

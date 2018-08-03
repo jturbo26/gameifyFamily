@@ -1,6 +1,14 @@
 import moment from 'moment';
-import { ADD_POINTS_TO_USER, CREATE_USER_RECORD, SET_POINTS_VALUE } from './';
+import { ADD_POINTS_TO_USER, CREATE_USER_RECORD, SET_POINTS_VALUE, LOAD_USERS } from './';
 import { TOGGLE_MODAL } from './index';
+
+export const loadUsers = () => {
+  return dispatch => {
+    fetch('/getUsers')
+      .then(data => data.json())
+      .then(users => dispatch({ type: LOAD_USERS, users }));
+  };
+};
 
 export const addPointsToUser = (user, points) => ({
   type: ADD_POINTS_TO_USER,

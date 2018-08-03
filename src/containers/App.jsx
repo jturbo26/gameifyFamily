@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { Link, withRouter, Route } from 'react-router-dom';
+import { lifecycle, compose } from 'recompose';
 import { Button } from 'semantic-ui-react';
 
 import Header from 'containers/Header/Header';
@@ -13,8 +14,18 @@ import { AdultSelections } from 'components/adults/AdultSelections';
 import { AdultDashboard } from 'containers/adults/AdultDashboard';
 import { Rewards } from 'containers/rewards';
 
+import { loadActivities } from 'redux/actions/activities';
+import { loadUsers } from 'redux/actions/userData';
+
 import './App.css';
 import '../global.css';
+
+const lifecycleHooks = lifecycle({
+  componentDidMount() {
+    this.props.getActivities();
+    this.props.getUsers();
+  }
+});
 
 const App = props => {
   const { users, activeUser, toastVisibility } = props;
@@ -45,4 +56,11 @@ const mapStateToProps = state => ({
   toastVisibility: state.toasts.visible
 });
 
-export default withRouter(connect(mapStateToProps, null)(App));
+const mapDispatchToProps = {
+  getActivities: () => loadActivities(),
+  getUsers: () => loadUsers()
+};
+
+export default withRouter(
+  compose(connect(mapStateToProps, mapDispatchToProps), lifecycleHooks)(App)
+);

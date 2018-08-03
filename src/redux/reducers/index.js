@@ -5,7 +5,7 @@ import activeUser from './activeUser';
 import activities from './activities';
 import approvalQueue from './approvalQueue';
 import form from './form';
-import users from './users';
+import userData from './userData';
 import isModalOpen from './modals';
 import rewards from './rewards';
 import toasts from './toasts';
@@ -15,7 +15,7 @@ const rootReducer = combineReducers({
   activities,
   approvalQueue,
   form,
-  users,
+  userData,
   isModalOpen,
   rewards,
   toasts,

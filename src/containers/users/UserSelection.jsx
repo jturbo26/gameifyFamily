@@ -48,7 +48,7 @@ UserSelectionContainer.propTypes = {
 };
 
 const mapStateToProps = state => ({
-  users: state.users,
+  users: state.userData,
   currentActiveUser: state.activeUser
 });
 
