@@ -2,14 +2,11 @@ const uuidv1 = require('uuid/v1');
 
 import { LOAD_ACTIVITIES, CREATE_NEW_ACTIVITY, DELETE_ACTIVITY } from './';
 
-export const logActivities = activities => {
+export const loadActivities = () => {
   return dispatch => {
-    fetch('/getActivities').then(activities => {
-      dispatch({
-        type: LOAD_ACTIVITIES,
-        activities
-      });
-    });
+    fetch('/getActivities')
+      .then(data => data.json())
+      .then(activities => dispatch({ type: LOAD_ACTIVITIES, activities }));
   };
 };
 
