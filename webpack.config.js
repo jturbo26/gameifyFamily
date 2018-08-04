@@ -48,7 +48,7 @@ module.exports = {
     extensions: ['.js', '.jsx', '.css'],
     modules: [path.resolve('./src'), path.resolve('./node_modules')]
   },
-  devtool: 'cheap-eval-source-map',
+  devtool: 'source-map',
   cache: true,
   devServer: {
     hot: true,

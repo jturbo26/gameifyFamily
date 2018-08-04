@@ -1,16 +1,24 @@
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 import { Redirect } from 'react-router-dom';
+import { lifecycle, compose } from 'recompose';
+import { isObjectEmpty } from 'utilities';
 
 import styles from './EditActivities.css';
 import { Input, TextArea, Label, Button } from 'semantic-ui-react';
-import { Link } from 'react-router-dom';
-import { isObjectEmpty } from 'utilities';
 
 import { createNewActivity, deleteActivity } from 'redux/actions/activities';
+import { loadActivities } from 'redux/actions/activities';
 import { displayToast } from 'redux/actions/toasts';
 import { updateField } from 'redux/actions/form';
+
+const lifecycleHooks = lifecycle({
+  componentDidMount() {
+    this.props.getActivities();
+  }
+});
 
 const EditActivitiesContainer = props => {
   const {
@@ -26,9 +34,7 @@ const EditActivitiesContainer = props => {
   } = props;
   const onSubmit = e => {
     e.preventDefault();
-    createActivity(activityName, activityDescription, activityPoints).then(action => {
-      displaySuccessToast('', 'Activity Created Successfully');
-    });
+    createActivity(activityName, activityDescription, activityPoints);
   };
   const activeUserLoaded = isObjectEmpty(activeUser);
   return (
@@ -80,7 +86,7 @@ const EditActivitiesContainer = props => {
           </form>
         </div>
       ) : (
-        <Redirect to="/" />
+        <Redirect to="/?redirect=edit-activities" />
       )}
     </Fragment>
   );
@@ -108,12 +114,15 @@ const mapStateToProps = state => ({
   activeUser: state.activeUser
 });
 
-const mapDispatchToProps = dispatch => ({
+const mapDispatchToProps = {
   createActivity: (name, description, points, frequency) =>
-    createNewActivity(dispatch, name, description, points, frequency),
-  updateFormField: (fieldName, value) => dispatch(updateField(fieldName, value)),
-  displaySuccessToast: (title, body, timeout) => dispatch(displayToast(title, body, timeout)),
-  removeActivity: activityId => dispatch(deleteActivity(activityId))
-});
+    createNewActivity(name, description, points, frequency),
+  updateFormField: (fieldName, value) => updateField(fieldName, value),
+  displaySuccessToast: (title, body, type, timeout) => displayToast(title, body, type, timeout),
+  removeActivity: activityId => deleteActivity(activityId),
+  getActivities: () => loadActivities()
+};
 
-export const EditActivities = connect(mapStateToProps, mapDispatchToProps)(EditActivitiesContainer);
+export const EditActivities = compose(connect(mapStateToProps, mapDispatchToProps), lifecycleHooks)(
+  EditActivitiesContainer
+);

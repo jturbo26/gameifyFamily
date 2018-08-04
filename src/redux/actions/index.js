@@ -10,6 +10,7 @@ export const UPDATE_FIELD = 'UPDATE_FIELD';
 // modals
 export const TOGGLE_MODAL = 'TOGGLE_MODAL';
 // rewards
+export const LOAD_REWARDS = 'LOAD_REWARDS';
 // toasts
 export const DISPLAY_TOAST = 'DISPLAY_TOAST';
 export const HIDE_TOAST = 'HIDE_TOAST';

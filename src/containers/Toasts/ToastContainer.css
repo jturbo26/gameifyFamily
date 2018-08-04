@@ -26,3 +26,7 @@
 .toast__success {
   background-color: #07bc0c;
 }
+
+.toast__error {
+  background-color: red;
+}

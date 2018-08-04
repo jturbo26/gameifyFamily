@@ -22,6 +22,14 @@ app.get('/getUsers', async (req, res) => {
   res.send(returnedUsers);
 });
 
+app.get('/getRewards', async (req, res) => {
+  const returnedRewards = await req.db
+    .collection('rewards')
+    .find({})
+    .toArray();
+  res.send(returnedRewards);
+});
+
 app.get('/getActivities', async (req, res) => {
   const returnedActivities = await req.db
     .collection('activities')

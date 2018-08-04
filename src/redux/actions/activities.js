@@ -1,6 +1,7 @@
 const uuidv1 = require('uuid/v1');
 
 import { LOAD_ACTIVITIES, CREATE_NEW_ACTIVITY, DELETE_ACTIVITY } from './';
+import { displayToast } from 'redux/actions/toasts';
 
 export const loadActivities = () => {
   return dispatch => {
@@ -10,17 +11,19 @@ export const loadActivities = () => {
   };
 };
 
-export const createNewActivity = async (dispatch, name, description, points, frequency) => {
-  const uuid = await uuidv1();
-  dispatch({
-    type: CREATE_NEW_ACTIVITY,
-    id: uuid,
-    name,
-    description,
-    points,
-    frequency
-  });
-  return true;
+export const createNewActivity = (name, description, points, frequency) => {
+  const uuid = uuidv1();
+  return dispatch => {
+    dispatch({
+      type: CREATE_NEW_ACTIVITY,
+      id: uuid,
+      name,
+      description,
+      points,
+      frequency
+    });
+    dispatch(displayToast('', 'Activity Created Successfully', 'success'));
+  };
 };
 
 export const deleteActivity = activityId => {

@@ -13,7 +13,7 @@ const addApprovalAction = (activity, requesterId, approvers) => {
 export const addApprovalToQueue = (activity, requesterId, approvers) => {
   return dispatch => {
     dispatch(addApprovalAction(activity, requesterId, approvers));
-    dispatch(displayToast('', 'Approval requested from adult'));
+    dispatch(displayToast('', 'Approval requested from adult', 'success'));
   };
 };
 

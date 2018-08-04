@@ -1,5 +1,5 @@
 import moment from 'moment';
-import { ADD_POINTS_TO_USER, CREATE_USER_RECORD, SET_POINTS_VALUE, LOAD_USERS } from './';
+import { LOAD_USERS, ADD_POINTS_TO_USER, CREATE_USER_RECORD, SET_POINTS_VALUE } from './';
 import { TOGGLE_MODAL } from './index';
 
 export const loadUsers = () => {
