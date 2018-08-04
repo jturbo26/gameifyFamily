@@ -4,16 +4,17 @@ export const hideToast = () => ({
   type: HIDE_TOAST
 });
 
-const displayToaster = (title, body) => ({
+const displayToaster = (title, body, toastType) => ({
   type: DISPLAY_TOAST,
   title,
-  body
+  body,
+  toastType
 });
 
-export const displayToast = (title, body, timeout) => {
+export const displayToast = (title, body, toastType, timeout) => {
   return dispatch => {
     const howLong = timeout === undefined ? 5000 : timeout;
-    dispatch(displayToaster(title, body));
+    dispatch(displayToaster(title, body, toastType));
     setTimeout(() => dispatch(hideToast()), howLong);
   };
 };

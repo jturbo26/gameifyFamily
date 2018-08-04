@@ -8,7 +8,8 @@ export const initialState = {
   toasts: {
     visible: false,
     title: '',
-    body: ''
+    body: '',
+    toastType: ''
   },
   router: {}
 };

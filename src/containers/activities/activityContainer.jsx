@@ -2,14 +2,23 @@ import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { connect, dispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
+import { lifecycle, compose } from 'recompose';
 import moment from 'moment';
+
 import { Card } from 'semantic-ui-react';
-import { addApprovalToQueue } from 'redux/actions/approvalQueue';
 import { displayToast } from 'redux/actions/toasts';
 import ActivityCard from 'components/activities/ActivityCard';
+import { addApprovalToQueue } from 'redux/actions/approvalQueue';
+import { loadActivities } from 'redux/actions/activities';
 
 import isEmpty from 'lodash/isEmpty';
 import styles from './ActivityContainer.css';
+
+const lifecycleHooks = lifecycle({
+  componentDidMount() {
+    this.props.getActivities();
+  }
+});
 
 const ActivityContainer = props => {
   const { users, activeUser, activities, addActivityApprovalQueue } = props;
@@ -28,13 +37,11 @@ const ActivityContainer = props => {
                 const userRecordsMatch = activeUser.userRecords.length
                   ? activeUser.userRecords.find(record => record.activityId === activity.id)
                   : '';
-
                 const recordTimestamp = userRecordsMatch => {
                   if (typeof userRecordsMatch === 'object') {
                     return userRecordsMatch.timestamp;
                   } else return '';
                 };
-
                 const recordExpiration =
                   typeof userRecordsMatch === 'object'
                     ? moment(recordTimestamp(userRecordsMatch)).add(activity.frequency, 'days')
@@ -47,6 +54,7 @@ const ActivityContainer = props => {
                   timestamp: recordExpiration - recordTimestamp(userRecordsMatch)
                 };
               };
+
               return (
                 <ActivityCard
                   key={activity.id}
@@ -72,19 +80,24 @@ ActivityContainer.propTypes = {
   users: PropTypes.array,
   activeUser: PropTypes.object,
   activities: PropTypes.array,
-  addActivityApprovalQueue: PropTypes.func
+  addActivityApprovalQueue: PropTypes.func,
+  getActivities: PropTypes.func
 };
 
 const mapStateToProps = state => ({
-  users: state.users,
+  users: state.userData,
   activeUser: state.activeUser,
   activities: state.activities
 });
 
-const mapDispatchToProps = dispatch => ({
+const mapDispatchToProps = {
   addActivityApprovalQueue: (activity, requesterId, approverId) =>
-    dispatch(addApprovalToQueue(activity, requesterId, approverId)),
-  displaySuccessToast: (title, body, timeout) => dispatch(displayToast(title, body, timeout))
-});
+    addApprovalToQueue(activity, requesterId, approverId),
+  displaySuccessToast: (title, body, toastType, timeout) =>
+    displayToast(title, body, toastType, timeout),
+  getActivities: () => loadActivities()
+};
 
-export const Activities = connect(mapStateToProps, mapDispatchToProps)(ActivityContainer);
+export const Activities = compose(connect(mapStateToProps, mapDispatchToProps), lifecycleHooks)(
+  ActivityContainer
+);

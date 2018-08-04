@@ -1,7 +1,10 @@
-import { CREATE_NEW_ACTIVITY } from 'redux/actions';
+import { LOAD_REWARDS } from 'redux/actions';
 
 const rewards = (state = [], action) => {
   switch (action.type) {
+    case LOAD_REWARDS: {
+      return action.rewards;
+    }
     default: {
       return state;
     }

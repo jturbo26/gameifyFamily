@@ -4,16 +4,28 @@ import { connect } from 'react-redux';
 import { compose, lifecycle } from 'recompose';
 import { Link } from 'react-router-dom';
 import { history } from 'redux/store';
+import { parseQueryParam } from 'utilities';
 
 import { Button } from 'semantic-ui-react';
 
 import { updateActiveUser } from 'redux/actions/updateActiveUser';
+import { displayToast } from 'redux/actions/toasts';
 
 import globalStyles from 'global.css';
 
 const enhance = lifecycle({
   componentDidMount() {
     this.props.setActiveUser({});
+    if (this.props.queryParam !== '') {
+      const queryParamObject = parseQueryParam(this.props.queryParam);
+      if (queryParamObject.type === 'redirect') {
+        this.props.displayErrorToast(
+          `You've been redirected`,
+          `You must be logged in to view ${queryParamObject.from}.`,
+          'error'
+        );
+      }
+    }
   }
 });
 
@@ -49,12 +61,15 @@ UserSelectionContainer.propTypes = {
 
 const mapStateToProps = state => ({
   users: state.userData,
-  currentActiveUser: state.activeUser
+  currentActiveUser: state.activeUser,
+  queryParam: state.router.location.search
 });
 
-const mapDispatchToProps = dispatch => ({
-  setActiveUser: user => dispatch(updateActiveUser(user))
-});
+const mapDispatchToProps = {
+  setActiveUser: user => updateActiveUser(user),
+  displayErrorToast: (title, body, toastType, timeout) =>
+    displayToast(title, body, toastType, timeout)
+};
 
 export const UserSelection = compose(connect(mapStateToProps, mapDispatchToProps), enhance)(
   UserSelectionContainer

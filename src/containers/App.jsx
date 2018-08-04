@@ -12,9 +12,8 @@ import { Activities } from 'containers/activities/activityContainer';
 import { EditActivities } from 'containers/activities/EditActivities';
 import { AdultSelections } from 'components/adults/AdultSelections';
 import { AdultDashboard } from 'containers/adults/AdultDashboard';
-import { Rewards } from 'containers/rewards';
+import { RewardsContainer } from 'containers/Rewards/Rewards';
 
-import { loadActivities } from 'redux/actions/activities';
 import { loadUsers } from 'redux/actions/userData';
 
 import './App.css';
@@ -22,7 +21,6 @@ import '../global.css';
 
 const lifecycleHooks = lifecycle({
   componentDidMount() {
-    this.props.getActivities();
     this.props.getUsers();
   }
 });
@@ -39,7 +37,7 @@ const App = props => {
       <Route path="/edit-activities" component={EditActivities} />
       <Route path="/adults" component={AdultSelections} />
       <Route path="/adult-dashboard" component={AdultDashboard} />
-      <Route path="/rewards" component={Rewards} />
+      <Route path="/rewards" component={RewardsContainer} />
     </div>
   );
 };
@@ -47,7 +45,8 @@ const App = props => {
 App.propTypes = {
   users: PropTypes.array,
   activeUser: PropTypes.object,
-  toastVisibility: PropTypes.bool
+  toastVisibility: PropTypes.bool,
+  getUsers: PropTypes.func
 };
 
 const mapStateToProps = state => ({
@@ -57,7 +56,6 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = {
-  getActivities: () => loadActivities(),
   getUsers: () => loadUsers()
 };
 

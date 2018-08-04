@@ -6,14 +6,16 @@ const toasts = (state = {}, action) => {
       return {
         visible: true,
         title: action.title,
-        body: action.body
+        body: action.body,
+        toastType: action.toastType
       };
     }
     case HIDE_TOAST: {
       return {
         visible: false,
         title: '',
-        body: ''
+        body: '',
+        toastType: ''
       };
     }
     default: {
