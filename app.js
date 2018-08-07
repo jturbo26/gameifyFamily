@@ -2,8 +2,11 @@ const path = require('path');
 const express = require('express');
 const MongoClient = require('mongodb').MongoClient;
 const expressMongoDb = require('express-mongo-db');
+const bodyParser = require('body-parser');
 
 const app = express();
+app.use(bodyParser.json({ type: 'application/json' }));
+app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static('./dist'));
 app.use(
   expressMongoDb(
@@ -36,6 +39,34 @@ app.get('/getActivities', async (req, res) => {
     .find({})
     .toArray();
   res.send(returnedActivities);
+});
+
+app.post('/addPoints', async (req, res) => {
+  const userDb = req.db.collection('userData');
+  const query = { name: req.body.user.name };
+  const newValues = { $set: { pointsValue: req.body.user.pointsValue + req.body.points } };
+  userDb.updateOne(query, newValues, (err, dbResponse) => {
+    if (err) {
+      console.log('there was an errror => ', err);
+      res.status(500).send('There was an error updating the points.', err);
+      userDb.close();
+    }
+    res.status(200).send(dbResponse);
+  });
+});
+
+app.post('/setPoints', async (req, res) => {
+  const userDb = req.db.collection('userData');
+  const query = { name: req.body.user.name };
+  const newValues = { $set: { pointsValue: req.body.points } };
+  userDb.updateOne(query, newValues, (err, dbResponse) => {
+    if (err) {
+      console.log('there was an errror => ', err);
+      res.status(500).send('There was an error updating the points.', err);
+      userDb.close();
+    }
+    res.status(200).send(dbResponse);
+  });
 });
 
 app.get('/*', function(req, res) {

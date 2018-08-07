@@ -53,7 +53,7 @@ const AdultDashboardContainer = props => {
     const userDropdownOptionsForModal = () => {
       return users.map(user => ({
         text: user.name,
-        value: user.id,
+        value: user.name,
         image: { src: 'http://via.placeholder.com/25x25' }
       }));
     };
@@ -143,7 +143,7 @@ AdultDashboardContainer.propTypes = {
   createRecord: PropTypes.func,
   isModalOpen: PropTypes.bool,
   toggleTheModal: PropTypes.func,
-  modalUserSelectFamilyMember: PropTypes.number,
+  modalUserSelectFamilyMember: PropTypes.string,
   modalNewPointsValue: PropTypes.string
 };
 
@@ -157,14 +157,14 @@ const mapStateToProps = state => ({
   modalNewPointsValue: state.form.modalNewPointsValue
 });
 
-const mapDispatchToProps = dispatch => ({
-  addPoints: (user, points) => dispatch(addPointsToUser(user, points)),
-  setPointsValue: (user, newPointsValue) => dispatch(setPointsValue(user, newPointsValue)),
-  removeApproval: approvalId => dispatch(removeApprovalFromQueue(approvalId)),
-  updateFormField: (fieldName, value) => dispatch(updateField(fieldName, value)),
+const mapDispatchToProps = {
+  addPoints: (user, points) => addPointsToUser(user, points),
+  setPointsValue: (user, newPointsValue) => setPointsValue(user, newPointsValue),
+  removeApproval: approvalId => removeApprovalFromQueue(approvalId),
+  updateFormField: (fieldName, value) => updateField(fieldName, value),
   createRecord: (user, activityId, activityName) =>
-    dispatch(createUserRecord(user, activityId, activityName)),
-  toggleTheModal: () => dispatch(toggleModal())
-});
+    createUserRecord(user, activityId, activityName),
+  toggleTheModal: () => toggleModal()
+};
 
 export const AdultDashboard = connect(mapStateToProps, mapDispatchToProps)(AdultDashboardContainer);

@@ -10,11 +10,23 @@ export const loadUsers = () => {
   };
 };
 
-export const addPointsToUser = (user, points) => ({
-  type: ADD_POINTS_TO_USER,
-  user,
-  points
-});
+export const addPointsToUser = (user, points) => {
+  return dispatch => {
+    const headers = {
+      'Content-Type': 'application/json'
+    };
+    const body = {
+      user,
+      points
+    };
+    fetch('/addPoints', { method: 'post', headers, body: JSON.stringify(body) });
+    dispatch({
+      type: ADD_POINTS_TO_USER,
+      user,
+      points
+    });
+  };
+};
 
 export const createUserRecord = (user, activityId, activityName) => {
   return dispatch => {
@@ -31,14 +43,26 @@ export const createUserRecord = (user, activityId, activityName) => {
 
 export const setPointsValue = (user, newPointsValue) => {
   return async (dispatch, getState) => {
-    const foundUser = getState().users.find(u => u.id === user);
-    await dispatch({
-      type: SET_POINTS_VALUE,
-      foundUser,
-      newPointsValue: parseInt(newPointsValue)
-    });
-    dispatch({
-      type: TOGGLE_MODAL
-    });
+    const foundUser = getState().userData.find(u => u.name === user);
+    console.log(foundUser);
+    const headers = {
+      'Content-Type': 'application/json'
+    };
+    const body = {
+      user: foundUser,
+      points: parseInt(newPointsValue)
+    };
+    fetch('/setPoints', { method: 'post', headers, body: JSON.stringify(body) })
+      .then(res => {
+        dispatch({
+          type: SET_POINTS_VALUE,
+          foundUser,
+          newPointsValue: parseInt(newPointsValue)
+        });
+        dispatch({
+          type: TOGGLE_MODAL
+        });
+      })
+      .catch(err => console.log(err));
   };
 };
