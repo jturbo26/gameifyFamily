@@ -82,7 +82,12 @@ const EditActivitiesContainer = props => {
               onChange={e => updateFormField('activityFrequency', e.target.value)}
               className={styles.addActivityField}
             />
-            <Button type="submit">Create Activity</Button>
+            <Button
+              disabled={!activityName || !activityDescription || !activityPoints}
+              type="submit"
+            >
+              Create Activity
+            </Button>
           </form>
         </div>
       ) : (

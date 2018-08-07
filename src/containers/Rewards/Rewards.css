@@ -1,0 +1,11 @@
+.addRewardsContainer {
+  width: 80%;
+  margin: 100px auto 0 auto;
+  padding: 30px;
+  border: 1px solid grey;
+  border-radius: 25px;
+}
+
+.addRewardField {
+  margin-bottom: 10px;
+}
